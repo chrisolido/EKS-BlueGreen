@@ -4,7 +4,7 @@ pipeline {
         stage('Build and Deploy Blue') {
             steps {
                 sh 'kubectl apply -f blue.yaml --namespace bluegreen'
-                kubectl apply -f blueservice.yaml --namespace bluegreen
+                sh 'kubectl apply -f blueservice.yaml --namespace bluegreen'
             }
         }
         stage('Deploy Green'){
